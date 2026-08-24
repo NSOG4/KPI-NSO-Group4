@@ -145,27 +145,37 @@
       margin-bottom: 30px;
     }
 
-    .login-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      text-decoration: none;
-      background: #254596;
-      color: #ffffff;
-      border-radius: 12px;
-      padding: 16px 22px;
-      font-size: 17px;
+    .redirect-status {
+      margin-top: 4px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #eff5ff;
+      border: 1px solid #dbe7ff;
+      color: #173777;
+      font-size: 15px;
       font-weight: 700;
-      transition: 0.2s ease;
-      box-shadow: 0 8px 20px rgba(37, 69, 150, 0.24);
+      line-height: 1.6;
     }
 
-    .login-button:hover {
-      background: #183778;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(37, 69, 150, 0.3);
+    .redirect-spinner {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto 12px;
+      border: 3px solid #d6e2ff;
+      border-top-color: #254596;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    .redirect-countdown {
+      margin-top: 8px;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     .notice {
@@ -264,19 +274,16 @@
         NSO Group 4
       </div>
 
-      <a
-        class="login-button"
-        href="https://script.google.com/macros/s/AKfycbxAQrBG-T0YBiXZdVo6NFPMB2cPjyp9wWv1DxtINVrk_x2ZLlLfL96IEZPTUAnRF8emiQ/exec"
-        target="_self"
-        rel="noopener"
-      >
-        ➜ เข้าสู่ระบบ KPI NSO Gr.4
-      </a>
+      <div class="redirect-status" role="status" aria-live="polite">
+        <div class="redirect-spinner" aria-hidden="true"></div>
+        กำลังเข้าสู่ระบบ KPI NSO Gr.4
+        <div class="redirect-countdown">
+          ระบบจะนำคุณไปยังหน้าระบบภายใน <span id="countdown">3</span> วินาที
+        </div>
+      </div>
 
       <div class="notice">
-        กรุณาเข้าสู่ระบบผ่านปุ่มด้านบน
-        <br>
-        Username และ Password จะถูกตรวจสอบภายในระบบ KPI NSO Gr.4
+        โปรดรอสักครู่ ระบบกำลังเชื่อมต่อไปยังหน้า KPI NSO Gr.4
       </div>
 
       <div class="divider"></div>
@@ -294,6 +301,25 @@
   <footer>
     KPI NSO Group 4 · NSO Group 4
   </footer>
+
+
+  <script>
+    (function () {
+      const appUrl = "https://script.google.com/macros/s/AKfycbxAQrBG-T0YBiXZdVo6NFPMB2cPjyp9wWv1DxtINVrk_x2ZLlLfL96IEZPTUAnRF8emiQ/exec";
+      let seconds = 3;
+      const countdown = document.getElementById("countdown");
+
+      const timer = setInterval(function () {
+        seconds -= 1;
+        if (countdown) countdown.textContent = Math.max(seconds, 0);
+
+        if (seconds <= 0) {
+          clearInterval(timer);
+          window.location.replace(appUrl);
+        }
+      }, 1000);
+    })();
+  </script>
 
 </body>
 </html>
