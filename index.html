@@ -6,8 +6,10 @@
 
   <title>KPI NSO Gr.4</title>
 
-  <meta name="description"
-        content="ระบบบันทึกและติดตามตัวชี้วัด NSO Group 4">
+  <meta
+    name="description"
+    content="ระบบบันทึกและติดตามตัวชี้วัด NSO Group 4"
+  >
 
   <style>
     * {
@@ -18,21 +20,31 @@
 
     body {
       font-family: Arial, "Noto Sans Thai", sans-serif;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(255,255,255,.08), transparent 30%),
-        linear-gradient(135deg, #173777 0%, #254596 55%, #173777 100%);
       min-height: 100vh;
       color: #172033;
       display: flex;
       flex-direction: column;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(255, 255, 255, 0.08),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #173777 0%,
+          #254596 55%,
+          #173777 100%
+        );
     }
 
     .topbar {
       width: 100%;
       padding: 18px 28px;
-      background: rgba(255,255,255,.06);
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
     }
 
     .topbar-inner {
@@ -47,30 +59,39 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 13px;
       font-weight: 700;
     }
 
-    .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: white;
-      color: #244596;
-      display: grid;
-      place-items: center;
-      font-size: 22px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+    .brand-logo-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 13px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13);
+    }
+
+    .brand-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-title {
-      font-size: 20px;
+      font-size: 21px;
+      line-height: 1.15;
     }
 
     .brand-subtitle {
-      margin-top: 2px;
+      margin-top: 4px;
       font-size: 12px;
       color: #ffd84d;
+      font-weight: 700;
     }
 
     main {
@@ -84,34 +105,42 @@
     .card {
       width: 100%;
       max-width: 520px;
-      background: white;
+      background: #ffffff;
       border-radius: 24px;
-      padding: 48px 42px 38px;
+      padding: 46px 42px 36px;
       text-align: center;
-      box-shadow: 0 25px 70px rgba(0,0,0,.20);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
     }
 
-    .app-icon {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 20px;
+    .app-logo-box {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 22px;
       background: #eff5ff;
       border: 1px solid #dce8fa;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      font-size: 38px;
+      border-radius: 24px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     h1 {
       color: #173777;
       font-size: 30px;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .subtitle {
       color: #64748b;
-      line-height: 1.7;
+      line-height: 1.75;
       font-size: 15px;
       margin-bottom: 30px;
     }
@@ -124,19 +153,19 @@
       width: 100%;
       text-decoration: none;
       background: #254596;
-      color: white;
+      color: #ffffff;
       border-radius: 12px;
       padding: 16px 22px;
       font-size: 17px;
       font-weight: 700;
-      transition: .2s ease;
-      box-shadow: 0 8px 20px rgba(37,69,150,.24);
+      transition: 0.2s ease;
+      box-shadow: 0 8px 20px rgba(37, 69, 150, 0.24);
     }
 
     .login-button:hover {
       background: #183778;
       transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(37,69,150,.30);
+      box-shadow: 0 12px 25px rgba(37, 69, 150, 0.3);
     }
 
     .notice {
@@ -146,7 +175,7 @@
       background: #f8fafc;
       color: #64748b;
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.65;
       border: 1px solid #e5e7eb;
     }
 
@@ -159,13 +188,13 @@
     .footer-text {
       color: #94a3b8;
       font-size: 12px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     footer {
       text-align: center;
       padding: 16px 20px 24px;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, 0.65);
       font-size: 12px;
     }
 
@@ -174,17 +203,27 @@
         padding: 14px 18px;
       }
 
+      .brand-logo-box {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand-title {
+        font-size: 18px;
+      }
+
       .card {
         padding: 38px 24px 30px;
         border-radius: 20px;
       }
 
-      h1 {
-        font-size: 27px;
+      .app-logo-box {
+        width: 84px;
+        height: 84px;
       }
 
-      .brand-title {
-        font-size: 17px;
+      h1 {
+        font-size: 27px;
       }
     }
   </style>
@@ -194,14 +233,18 @@
 
   <header class="topbar">
     <div class="topbar-inner">
+
       <div class="brand">
-        <div class="brand-icon">🏥</div>
+        <div class="brand-logo-box">
+          <img src="BDMS_Logo.svg" alt="BDMS Logo">
+        </div>
 
         <div>
           <div class="brand-title">KPI NSO Gr.4</div>
           <div class="brand-subtitle">Nursing Group 4</div>
         </div>
       </div>
+
     </div>
   </header>
 
@@ -209,12 +252,15 @@
 
     <section class="card">
 
-      <div class="app-icon">🏥</div>
+      <div class="app-logo-box">
+        <img src="BDMS_Logo.svg" alt="BDMS Logo">
+      </div>
 
       <h1>KPI NSO Gr.4</h1>
 
       <div class="subtitle">
-        ระบบบันทึกและติดตามตัวชี้วัดเครือข่ายพยาบาล<br>
+        ระบบบันทึกและติดตามตัวชี้วัดเครือข่ายพยาบาล
+        <br>
         Nursing Group 4
       </div>
 
@@ -228,14 +274,16 @@
       </a>
 
       <div class="notice">
-        กรุณาเข้าสู่ระบบผ่านปุ่มด้านบน<br>
+        กรุณาเข้าสู่ระบบผ่านปุ่มด้านบน
+        <br>
         Username และ Password จะถูกตรวจสอบภายในระบบ KPI NSO Gr.4
       </div>
 
       <div class="divider"></div>
 
       <div class="footer-text">
-        Bangkok Dusit Medical Services (BDMS)<br>
+        Bangkok Dusit Medical Services (BDMS)
+        <br>
         Nursing Group 4
       </div>
 
